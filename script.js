@@ -43,12 +43,18 @@ const resizeAndDownload = () => {
 
     canvas.width = widthInput.value;
     canvas.height = heightInput.value;
-
+    if(canvas.width !=0 && canvas.height !=0){
     ctx.drawImage(previewImg, 0, 0, canvas.width, canvas.height);
     //document.body.appendChild(canvas);
-    a.href = canvas.toDataURL("image/jpeg", imgQuality);
+    //a.href = canvas.toDataURL("image/jpeg", imgQuality);
+    a.href = canvas.toDataURL("image/*",imgQuality);
+
     a.download = new Date().getTime();
     a.click();
+    }else{
+        alert("Please mention the Dimension");
+    }
+
 
 
 }
